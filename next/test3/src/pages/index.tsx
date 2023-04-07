@@ -1,22 +1,36 @@
-import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/redux/store";
-import { slice } from "@/redux/store/reducer/user";
+import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { slice } from '@/redux/store/reducer/user';
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import Link from 'next/link';
 
 const Home = () => {
-  const Test = useSelector((state: RootState) => state.user.email);
-  const dispatch = useDispatch();
+    const Test = useAppSelector((state) => state.user.email);
+    const Test1 = useAppSelector((state) => state.user.value);
+    const dispatch = useDispatch();
 
-  const test = () => {
-    dispatch(slice.actions.login("changed"));
-  };
+    const test1 = () => {
+        setTimeout(() => {
+            dispatch(slice.actions.thunk(3));
+        }, 1000);
+    };
 
-  return <Title onClick={test}>{Test}</Title>;
+    const test = () => {
+        dispatch(slice.actions.login('changed'));
+    };
+
+    return (
+        <div>
+            <Title onClick={test}>{Test}</Title>
+            <div onClick={test1}>타스트2 : {Test1}</div>
+            <Link href="/main">이거누르면진짜후회함 경고했음</Link>
+        </div>
+    );
 };
 
 export default Home;
 
 const Title = styled.h1`
-  color: #2f5fd1;
-  margin-left: 300px;
+    color: #2f5fd1;
+    margin-left: 300px;
 `;

@@ -16,8 +16,12 @@ export const makeStore = () => {
     },
     devTools: process.env.NODE_ENV !== "production",
   });
+
   return store;
 };
+
+export type AppStore = ReturnType<typeof makeStore>;
+export type AppDispatch = AppStore["dispatch"];
 
 const wrapper = createWrapper(makeStore, {
   debug: process.env.NODE_ENV === "development",

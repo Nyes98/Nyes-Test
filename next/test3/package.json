@@ -1,34 +1,39 @@
 {
-  "name": "test3",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@reduxjs/toolkit": "^1.9.3",
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.33",
-    "@types/react-dom": "18.0.11",
-    "@types/react-redux": "^7.1.25",
-    "@types/redux": "^3.6.0",
-    "@types/redux-thunk": "^2.1.0",
-    "eslint": "8.37.0",
-    "eslint-config-next": "13.2.4",
-    "next": "13.2.4",
-    "next-redux-wrapper": "^8.1.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-redux": "^8.0.5",
-    "redux": "^4.2.1",
-    "styled-components": "^5.3.9",
-    "typescript": "5.0.3"
-  },
-  "devDependencies": {
-    "@types/styled-components": "^5.1.26",
-    "babel-plugin-styled-components": "^2.1.1"
-  }
+    "name": "test3",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@reduxjs/toolkit": "^1.9.3",
+        "@types/node": "18.15.11",
+        "@types/react": "18.0.33",
+        "@types/react-dom": "18.0.11",
+        "@types/react-redux": "^7.1.25",
+        "@types/react-slick": "^0.23.10",
+        "@types/redux": "^3.6.0",
+        "@types/redux-thunk": "^2.1.0",
+        "eslint": "8.37.0",
+        "eslint-config-next": "13.2.4",
+        "next": "13.2.4",
+        "next-redux-wrapper": "^8.1.0",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-redux": "^8.0.5",
+        "react-slick": "^0.29.0",
+        "redux": "^4.2.1",
+        "redux-logger": "^3.0.6",
+        "slick-carousel": "^1.8.1",
+        "styled-components": "^5.3.9",
+        "typescript": "5.0.3",
+        "web3": "^1.9.0"
+    },
+    "devDependencies": {
+        "@types/styled-components": "^5.1.26",
+        "babel-plugin-styled-components": "^2.1.1"
+    }
 }
