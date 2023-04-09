@@ -1,36 +1,48 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React from "react";
+import Slider from "react-slick";
+import styled from "styled-components";
 
 const settings = {
-    centerMode: true,
-    centerPadding: '101px',
-    slidesToShow: 1,
+  centerMode: true,
+  centerPadding: "70px",
+  slidesToShow: 1,
 };
 
 const MySlider = () => {
-    const centerSlideStyle = {
-        width: '80%', // Adjust the width of the center slide here
-    };
-
-    return (
-        <Slider {...settings}>
-            <div>
-                <h3>Slide 1</h3>
-            </div>
-            <div style={centerSlideStyle}>
-                <h3>Slide 2</h3>
-            </div>
-            <div>
-                <h3>Slide 3</h3>
-            </div>
-            <div>
-                <h3>Slide 4</h3>
-            </div>
-            <div>
-                <h3>Slide 5</h3>
-            </div>
-        </Slider>
-    );
+  return (
+    <Wrap>
+      <Slider {...settings}>
+        <Item>
+          <img src="./imgs/main1.png" alt="main" />
+        </Item>
+        <Item>
+          <img src="./imgs/main1.png" alt="main" />
+        </Item>
+        <Item>
+          <img src="./imgs/main1.png" alt="main" />
+        </Item>
+        <Item>
+          <img src="./imgs/main1.png" alt="main" />
+        </Item>
+        <Item>
+          <img src="./imgs/main1.png" alt="main" />
+        </Item>
+      </Slider>
+    </Wrap>
+  );
 };
 
 export default MySlider;
+
+const Wrap = styled.div`
+  position: relative;
+`;
+
+const Item = styled.div`
+  border: 1px solid black;
+
+  img {
+    width: 80%;
+    margin: auto;
+  }
+`;
