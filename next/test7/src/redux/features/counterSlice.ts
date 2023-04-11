@@ -1,13 +1,30 @@
 import { HYDRATE } from 'next-redux-wrapper';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 interface CounterState {
     value: number;
+    loading: boolean;
 }
 
 const initialState: CounterState = {
     value: 0,
+    loading: false,
 };
+
+export const incrementAsync = createAsyncThunk('counter/incrementAsync', async (amount: number) => {
+    const curPromise = await new Promise((resolve, reject) =>
+        setTimeout(() => {
+            if (false) {
+                reject('not done');
+            }
+            resolve('done');
+        }, 1000)
+    ).then((pastResolve) => {
+        console.log(pastResolve);
+    });
+
+    return amount;
+});
 
 const counterSlice = createSlice({
     name: 'counter',
@@ -20,15 +37,15 @@ const counterSlice = createSlice({
             state.value -= 1;
         },
     },
-
-    /** 페이지 이동 시 상태 초기화가 필요한 경우 추가해야 함 */
-    extraReducers: {
-        [HYDRATE]: (state, action) => {
-            return {
-                ...state,
-                // ...action.payload.counter
-            };
-        },
+    extraReducers: (builder) => {
+        builder
+            .addCase(incrementAsync.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(incrementAsync.fulfilled, (state, action) => {
+                state.loading = false;
+                state.value += action.payload;
+            });
     },
 });
 

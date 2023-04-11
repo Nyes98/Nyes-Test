@@ -3,28 +3,12 @@ import { useAppDispatch, useAppSelector } from '../hooks/reduxHook';
 import { decrement, increment } from '../redux/features/counterSlice';
 import { selectAuthState, setAuthState } from '../redux/features/authSlice';
 import { NextPage } from 'next';
+import SimpleSlider from '@/components/common/MainCarousel';
 
 const Home = function () {
-    const { value: count } = useAppSelector((state) => state.counter);
-    const dispatch = useAppDispatch();
-    const authState = useAppSelector(selectAuthState);
-
     return (
         <div>
-            <div>home</div>
-            <div>REDUX</div>
-            <div>{authState ? 'Logged in' : 'Not Logged In'}</div>
-            <button
-                onClick={() => {
-                    authState ? dispatch(setAuthState(false)) : dispatch(setAuthState(true));
-                }}
-            >
-                {authState ? 'Logout' : 'LogIn'}
-            </button>
-
-            <button onClick={() => dispatch(increment())}>increment</button>
-            <span>{count}</span>
-            <button onClick={() => dispatch(decrement())}>decrement</button>
+            <SimpleSlider />
         </div>
     );
 };
