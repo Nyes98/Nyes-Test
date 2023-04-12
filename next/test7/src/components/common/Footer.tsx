@@ -1,31 +1,52 @@
-import Link from 'next/link';
-import { useState } from 'react';
 import styled from 'styled-components';
 
 const Footer = () => {
-    const [select, setSelect] = useState(0);
-    const categoryArr = [
-        { Img: 'home', text: '홈', href: '/' },
-        { Img: 'market', text: '마켓', href: '/market' },
-        { Img: 'spot', text: '위스키 스팟', href: '/spot' },
-        { Img: 'mypage', text: '마이페이지', href: '/mypage' },
-    ];
-
     return (
         <FooterBox>
-            {categoryArr.map((item, index) => (
-                <Link href={item.href}>
-                    <Category
-                        onClick={() => {
-                            setSelect(index);
-                        }}
-                        className={index == select ? 'on' : ''}
-                    >
-                        <img src={`/imgs/${item.Img}.svg`} alt={item.text} />
-                        <div>{item.text}</div>
-                    </Category>
-                </Link>
-            ))}
+            <SNSBox>
+                <div>인스타그램</div>
+                <div>페이스북</div>
+            </SNSBox>
+            <InfoBox>
+                <Title>카카오톡</Title>
+                <div>@윈윈</div>
+            </InfoBox>{' '}
+            <InfoBox>
+                <Title>전화</Title>
+                <div>서울 강남구 도산대로 427, 지하1층</div>
+            </InfoBox>{' '}
+            <InfoBox>
+                <Title>영업시간</Title>
+                <div>평일 10:00~18:30</div>
+            </InfoBox>{' '}
+            <InfoBox>
+                <Title>이메일</Title>
+                <div>winwin@winwin.com</div>
+            </InfoBox>
+            <SNSBox>
+                <div>이용약관</div>
+                <div>개인정보처리방침</div>
+                <div>1:1 문의하기</div>
+                <div>자주 묻는 질문</div>
+            </SNSBox>
+            <InfoBox>
+                <Title>상호</Title>
+                <div>앱실론 스튜디오 주식회사</div>
+            </InfoBox>{' '}
+            <InfoBox>
+                <Title>주소</Title>
+                <div>서울 강남구 도산대로 427, 지하1층</div>
+            </InfoBox>{' '}
+            <InfoBox>
+                <Title>사업자등록번호</Title>
+                <div>321-74-00750</div>
+            </InfoBox>{' '}
+            <InfoBox>
+                <Title>대표</Title>
+                <div>문찬영</div>
+                <Title>개인정보관리책임자</Title>
+                <div>최예찬</div>
+            </InfoBox>{' '}
         </FooterBox>
     );
 };
@@ -33,37 +54,29 @@ const Footer = () => {
 export default Footer;
 
 const FooterBox = styled.div`
+    padding: 19px;
+    font-weight: 600;
+    font-size: 0.5rem;
+    border-top: 1px solid lightgray;
+    margin-top: 30px;
+`;
+
+const SNSBox = styled.div`
     display: flex;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
-    a {
-        flex: 1;
-        margin: 0 10px;
-        color: gray;
+    margin-bottom: 15px;
+    div {
+        margin-right: 5px;
     }
 `;
 
-const Category = styled.div`
-    text-align: center;
-    font-size: 0.6rem;
-    font-weight: 700;
-    padding-bottom: 5px;
+const InfoBox = styled.div`
+    margin: 3px 0;
+    display: flex;
 
-    &.on {
-        color: black;
-        img {
-            filter: invert(100%) sepia(100%) saturate(14%) hue-rotate(273deg) brightness(99%) contrast(104%);
-        }
+    div {
+        margin-right: 8px;
     }
-
-    img {
-        margin: 5px auto;
-        width: 16px;
-        height: 16px;
-    }
-
-    @media screen and (max-width: 245px) {
-        div {
-            display: none;
-        }
-    }
+`;
+const Title = styled.div`
+    color: gray;
 `;

@@ -3,12 +3,51 @@ import { useAppDispatch, useAppSelector } from '../hooks/reduxHook';
 import { decrement, increment } from '../redux/features/counterSlice';
 import { selectAuthState, setAuthState } from '../redux/features/authSlice';
 import { NextPage } from 'next';
-import SimpleSlider from '@/components/common/MainCarousel';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import BeginningCarousel from '@/components/common/BeginningCarousel';
+import MainCarousel from '@/components/common/MainCarousel';
+import RecentMinting from '@/components/common/RecentMinting';
+import CardCarousel from '@/components/common/CardCarousel';
 
 const Home = function () {
+    const [a, setA] = useState('');
+    const [b, setB] = useState('');
+
+    const handleA = (e: any) => {
+        setA(e.target.value);
+        console.log(a);
+    };
+
+    const handleB = (e: any) => {
+        setB(e.target.value);
+        console.log(b);
+    };
+
+    const callDB = async () => {
+        const dataa = await axios.get('http://localhost:5000/');
+    };
+
+    const createTest = async () => {
+        console.log('A :', a, 'B : ', b);
+        const data = await axios.post('http://localhost:5000/api/ys', { a: a, b: b });
+        console.log(data);
+    };
+
+    useEffect(() => {
+        callDB();
+    }, []);
+
     return (
         <div>
-            <SimpleSlider />
+            <input type="text" onInput={handleA} />
+            <input type="text" onInput={handleB} />
+            <div onClick={createTest}>등록</div>
+            <MainCarousel />
+            <BeginningCarousel />
+            <RecentMinting />
+            <CardCarousel />
+            <RecentMinting />
         </div>
     );
 };

@@ -1,12 +1,35 @@
 import styled from 'styled-components';
 
 const Header = () => {
-    return <HeaderBox>로고나는 존재한다</HeaderBox>;
+    return (
+        <HeaderBox>
+            <Wrap>
+                <div>
+                    <img src="/imgs/logo.png" alt="logo" />
+                </div>
+                <Search>
+                    <img src="/imgs/search.svg" alt="search" />
+                </Search>
+            </Wrap>
+        </HeaderBox>
+    );
 };
 
 export default Header;
 
-const HeaderBox = styled.div`
+const HeaderBox = styled.div``;
+const Wrap = styled.div`
     display: flex;
-    background-color: blue;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    padding: 15px 0;
+`;
+
+const Search = styled.div`
+    display: flex;
+
+    img {
+        width: 20px;
+    }
 `;

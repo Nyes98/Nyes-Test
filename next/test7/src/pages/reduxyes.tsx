@@ -9,7 +9,7 @@ const MyComponent = () => {
     const { value: count } = useAppSelector((state) => state.counter);
 
     function handleIncrementAsync() {
-        dispatch(incrementAsync(5)); // dispatch the async thunk with an amount of 5
+        dispatch(incrementAsync(5));
     }
 
     return (

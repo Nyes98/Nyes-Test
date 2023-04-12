@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import BeginningCarousel_item from './BeginningCarousel_item';
 import MainCarousel_item from './MainCarousel_item';
 
-const MainCarousel = () => {
+const CardCarousel = () => {
     const settings = {
         infinite: true,
         speed: 500,
@@ -28,31 +28,30 @@ const MainCarousel = () => {
 
     const Imsi = [
         {
-            img1: 'main1',
-            img2: 'bottle1',
-            title: '존윅이 마시는 위스키는 어떨까요?',
-            contents: '최초의 싱글 배럴 버번 블랑톤을 \n 윈윈에서 지금 만나보세요!',
+            img1: 'membership1',
+            img2: 'card1',
+            title: '윈윈만의 구독 시스템 제네시스 멤버십',
+            contents: '지금 바로 가입해보세요!',
         },
         {
-            img1: 'main1',
-            img2: 'bottle1',
-            title: '존윅이 마시는 소주는 어떨까요?',
-            contents: '나는 모르겠으니 \n 너가 알아봐주세요!',
+            img1: 'membership1',
+            img2: 'card1',
+            title: '두번째',
+            contents: '가입해라',
         },
         {
-            img1: 'main1',
-            img2: 'bottle1',
-            title: '존윅이 마시는 와인은 어떨까요?',
-            contents: '최초의 최초의 최초의 최초의 최초의 \n 최초의 최초의 최초의!',
+            img1: 'membership1',
+            img2: 'card1',
+            title: '멤버십 멤버십 멤버십 멤버십 멤버십',
+            contents: '지금 지금 지금!',
         },
     ];
-
     return (
         <Wrap className="hear">
             <Slider {...settings}>
                 {Imsi.map((item, index) => (
-                    <Item key={`main-${index}`}>
-                        <MainCarousel_item item={item}></MainCarousel_item>
+                    <Item key={`card-${index}`}>
+                        <MainCarousel_item item={item} />
                     </Item>
                 ))}
             </Slider>
@@ -60,7 +59,7 @@ const MainCarousel = () => {
     );
 };
 
-export default MainCarousel;
+export default CardCarousel;
 
 const Wrap = styled.div`
     overflow: visible;
