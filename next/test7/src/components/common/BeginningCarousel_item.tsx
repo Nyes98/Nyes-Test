@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const BeginningCarousel_item = () => {
     return (
-        <Wrap>
+        <CarouselItem>
             <ImgBox>
                 <img src="/imgs/bottle1.png" alt="b1" />
             </ImgBox>
@@ -12,13 +12,13 @@ const BeginningCarousel_item = () => {
                     <img src="/imgs/MATIC1.png" alt="matic" /> 400 MATIC
                 </Price>
             </PriceBox>
-        </Wrap>
+        </CarouselItem>
     );
 };
 
 export default BeginningCarousel_item;
 
-const Wrap = styled.div`
+const CarouselItem = styled.div`
     margin: 10px 0;
     border-radius: 10px;
     box-shadow: 3px 5px 5px 1px rgb(0, 0, 0, 0.2);

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 
 const Header = () => {
@@ -5,7 +6,9 @@ const Header = () => {
         <HeaderBox>
             <Wrap>
                 <div>
-                    <img src="/imgs/logo.png" alt="logo" />
+                    <Link href={'/'}>
+                        <img src="/imgs/logo.png" alt="logo" />
+                    </Link>
                 </div>
                 <Search>
                     <img src="/imgs/search.svg" alt="search" />

@@ -3,11 +3,13 @@ import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 import counterReducer from '../redux/features/counterSlice';
 import { authSlice } from '../redux/features/authSlice';
 import logger from 'redux-logger';
+import userReducer from './features/userSlice';
 
 const reducer = (state: any, action: PayloadAction<any>) => {
     return combineReducers({
         counter: counterReducer,
         [authSlice.name]: authSlice.reducer,
+        user: userReducer,
     })(state, action);
 };
 

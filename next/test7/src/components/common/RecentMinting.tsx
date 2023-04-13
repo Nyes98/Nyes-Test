@@ -1,23 +1,30 @@
 import styled from 'styled-components';
 import BeginningCarousel_item from './BeginningCarousel_item';
 
-const RecentMinting = () => {
+type Props = {
+    data: IRecentMintingData;
+};
+const RecentMinting: React.FC<Props> = ({ data }) => {
     return (
         <Wrap>
-            <Title>최근 민팅 된 위스키들</Title>
+            <Title>{data.title}</Title>
             <ItemsBox>
-                <Item>
-                    <BeginningCarousel_item />
-                </Item>
-                <Item>
-                    <BeginningCarousel_item />
-                </Item>
-                <Item>
-                    <BeginningCarousel_item />
-                </Item>
-                <Item>
-                    <BeginningCarousel_item />
-                </Item>
+                {data.item.map((item, index) => (
+                    <Item>
+                        <CarouselItem>
+                            <ImgBox>
+                                <img src={`imgs/${item.img}.png`} alt={item.img} />
+                            </ImgBox>
+                            <PriceBox>
+                                <Name>{item.name}</Name>
+                                <Price>
+                                    <img src="/imgs/MATIC1.png" alt="matic" />
+                                    {item.price} MATIC
+                                </Price>
+                            </PriceBox>
+                        </CarouselItem>
+                    </Item>
+                ))}
             </ItemsBox>
         </Wrap>
     );
@@ -47,4 +54,42 @@ const ItemsBox = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+`;
+
+const CarouselItem = styled.div`
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 3px 5px 5px 1px rgb(0, 0, 0, 0.2);
+`;
+const ImgBox = styled.div`
+    background-color: lightgray;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    img {
+        width: 25px;
+        height: 130px;
+        margin: auto;
+        padding: 20px 0;
+    }
+`;
+const PriceBox = styled.div`
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+`;
+const Price = styled.div`
+    display: flex;
+    align-items: center;
+    font-size: 0.65rem;
+    img {
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
+`;
+const Name = styled.div`
+    font-size: 0.7rem;
+    font-weight: 800;
+    margin-bottom: 5px;
 `;

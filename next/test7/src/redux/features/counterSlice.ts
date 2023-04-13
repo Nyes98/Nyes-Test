@@ -1,4 +1,3 @@
-import { HYDRATE } from 'next-redux-wrapper';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 interface CounterState {
