@@ -8,10 +8,13 @@ import MainCarousel from '@/components/common/MainCarousel';
 import RecentMinting from '@/components/common/RecentMinting';
 import Link from 'next/link';
 import { setAuthState } from '@/redux/features/authSlice';
+import { createDB, testDB } from '@/apis';
+import { IUser } from '@/interfaces/user.interface';
 
 const Home = function () {
     const [a, setA] = useState('');
     const [b, setB] = useState('');
+    const [users, setUsers] = useState<IUser[]>([]);
 
     const cardData = [
         {
@@ -107,26 +110,33 @@ const Home = function () {
         console.log(b);
     };
 
-    const callDB = async () => {
-        const dataa = await axios.get('http://localhost:5000/');
+    const callTest = async () => {
+        const response = await testDB();
+        setUsers(response.data);
     };
 
-    const createTest = async () => {
-        console.log('A :', a, 'B : ', b);
-        const data = await axios.post('http://localhost:5000/api/ys', { a: a, b: b });
+    const makeDB = async () => {
+        const data = await createDB(a, b);
         console.log(data);
     };
 
-    useEffect(() => {
-        // callDB();
-    }, []);
-
     return (
         <div>
-            {/* <input type="text" onInput={handleA} />
+            <input type="text" onInput={handleA} />
             <input type="text" onInput={handleB} />
-            <div onClick={createTest}>등록</div> */}
+            <div onClick={makeDB}>등록</div>
             <Link href={'/reduxyes'}>뤼덕스</Link>
+            <div onClick={callTest}>테스트입니다</div>
+            <div
+                onClick={() => {
+                    console.log(users);
+                }}
+            >
+                테스트
+            </div>
+            {users.map((item, index) => (
+                <div key={`user-${index}`}>{item.name}</div>
+            ))}
             <MainCarousel data={mainData} />
             <BeginningCarousel />
             <RecentMinting data={recentData} />

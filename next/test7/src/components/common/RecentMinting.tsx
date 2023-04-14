@@ -10,7 +10,7 @@ const RecentMinting: React.FC<Props> = ({ data }) => {
             <Title>{data.title}</Title>
             <ItemsBox>
                 {data.item.map((item, index) => (
-                    <Item>
+                    <Item key={`carou-${index}`}>
                         <CarouselItem>
                             <ImgBox>
                                 <img src={`imgs/${item.img}.png`} alt={item.img} />

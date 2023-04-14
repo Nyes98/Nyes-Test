@@ -1,88 +1,84 @@
+import { IUser } from './../test7/src/interfaces/user.interface';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import mongoose from 'mongoose';
+import { IWhiskey, Whiskey, User, Admin, IAdmin, FoodBoard, IFoodBoard, board } from './models';
+import bodyParser from 'body-parser';
 const app = express();
-import { MongoDB } from '../db/index';
-app.use(cors());
-// Define your Express routes, middleware, and other server configurations here\
+const uri = 'mongodb://127.0.0.1:27017/wineWin';
+const routes = require('./routes');
 
-let mongodb;
-
-const bodyParser = require('body-parser');
-
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(
+    cors({
+        origin: 'http://localhost:3000',
+        credentials: true,
+    })
+);
+
+mongoose
+    .connect(uri, {})
+    .then(() => console.log('connected to MongD'))
+    .catch((err) => console.log(err));
 
 app.get('/', async (req, res) => {
-    try {
-        mongodb = await MongoDB.getInstance();
-        const db = mongodb.getDb('test');
-        const usersCollection = db.collection('testcal');
+    console.log('12342424123');
 
-        const users = await usersCollection.find().toArray();
-        res.json(users);
+    try {
+        console.log('123123');
+        const users: IUser[] = await User.find();
+        console.log('users', users);
+        // const db = mongodb.getDb("test");
+        // const usersCollection = db.collection("testcal");
+
+        // const users = await usersCollection.find().toArray();
+        // console.log("users", users);
+        // res.json(users);
     } catch (err) {
         console.error('Error fetching users:', err);
         res.status(500).send('Internal server error');
     }
 });
 
-app.get('/api/data', (req: Request, res: Response) => {
-    // Handle your Express route logic here
-    res.json({ message: 'Hello from Express server!' });
-});
-
-app.post('/api/click', (req: Request, res: Response) => {
-    // Handle your Express route logic here
-    res.send({ msg: '통신완료!!' });
-});
-
 app.post('/api/insert', async (req: Request, res: Response) => {
-    // Handle your Express route logic here
-    console.log(mongodb);
-    const db = mongodb.getDb('test');
-    const usersCollection = db.collection('testcal');
-    const data = await usersCollection.insertOne({ c: 3 });
-    const users = await usersCollection.find().toArray();
-    console.log('users', users);
-    res.json(users);
+    const newWhiskey: IWhiskey = new Whiskey({
+        name: 'new whiskey',
+        Img: '1.png',
+        owner: '김영준',
+        price: 100,
+        mintTime: new Date(),
+        info: '17년산',
+    });
+    Whiskey.create(newWhiskey)
+        .then((whiskey) => console.log('wiskey created'))
+        .catch((error) => console.log(error));
+
+    const newAdmin: IAdmin = new Admin({});
+    const newBoardItem: board = {
+        title: '1',
+        text: '1',
+        img: '1',
+        video: '1',
+        createdAt: new Date(),
+        view: 1,
+        like: 1,
+    };
+    // Admin.create(newAdmin)
+    //   .then((admin) => console.log("admin created"))
+    //   .catch((error) => console.log(error));
+
+    Admin.updateOne({ number: 0 }, { $push: { board: newBoardItem } })
+        .then((admin) => console.log('admin updated'))
+        .catch((error) => console.log(error));
 });
-app.post('/api/create', async (req: Request, res: Response) => {
-    // Handle your Express route logic here
-    console.log(mongodb);
-    const create = mongodb.createDatabase('ttt3t');
-    const db = mongodb.getDb('ttt3t');
-    const usersCollection = db.collection('tqwet');
-    const data = await usersCollection.insertOne({ a: 1 });
-    const users = await usersCollection.find().toArray();
-    console.log('users', users);
-    res.json(users);
+app.post('/api/delete', async (req: Request, res: Response) => {
+    Whiskey.deleteOne({ owner: '김영준' })
+        .then((result) => console.log('wiskey destroyed'))
+        .catch((error) => console.log(error));
 });
 
-app.post('/api/ys', async (req: Request, res: Response) => {
-    console.log('이건감', req.body);
-    const a = req.body.a;
-    const b = req.body.b;
-    const db = mongodb.getDb('ys');
-    const create = mongodb.createItem(a, b);
-    console.log(create);
-});
+app.use('/api', routes);
 
-app.post('/api/createItem', async (req: Request, res: Response) => {
-    // Handle your Express route logic here
-    console.log(mongodb);
-    const name = '김영준';
-    const description = 123;
-    const price = 6600;
-    const db = mongodb.getDb('ttt3t');
-    console.log('여까진 지날걸');
-    const create = mongodb.createItem(name, description, price);
-    console.log('create', create);
-    // const usersCollection = db.collection("tqwet");
-    // const data = await usersCollection.insertOne({ a: 1 });
-    // const users = await usersCollection.find().toArray();
-    // console.log("users", users);
-    // res.json(users);
-});
 // Start the server
 app.listen(5000, () => {
     console.log('Express server is running on http://localhost:5000');
