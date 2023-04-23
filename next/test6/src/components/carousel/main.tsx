@@ -30,7 +30,6 @@ const CenterMode = () => {
         <Item>3</Item>
         <Item>4</Item>
         <Item>5</Item>
-        <Item>6</Item>
       </Slider>
     </Wrap>
   );
