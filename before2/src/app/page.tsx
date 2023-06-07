@@ -16,28 +16,7 @@ export default function Home() {
     });
 
     const dispatch = useAppDispatch();
-    return (
-        <>
-            <div>테스트중이야</div>
-            <div>
-                <Link href={'/do'}>do</Link>
-            </div>
-            <div>
-                <Link href={'/dodo'}>dodo</Link>
-            </div>
-            <div>
-                <Link href={'/load'}>로드</Link>
-            </div>
-            <div>여기는 리덕스</div>
-            <div onClick={() => dispatch(decrement())}>-</div>
-            <div>{count}</div>
-            <div onClick={() => dispatch(increment())}>+</div>
-            <Web3Button />
-            <div>{address}</div>
-
-            <div>
-                {data?.formatted} {data?.symbol}
-            </div>
-        </>
-    );
+    return <Wrap>하위</Wrap>;
 }
+
+const Wrap = styled.div``;
