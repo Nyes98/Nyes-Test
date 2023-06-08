@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { HeaderDummy } from '../../data/dummy';
+import { HeaderDummy } from '../../data/header';
 
 export default function MenuDropdown() {
-    const [isOpen, setIsOpen] = useState(false); // 드롭다운 메뉴 열림 여부 상태
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);

@@ -20,7 +20,7 @@ export default function MainNftSection() {
 }
 
 const Wrap = styled.div`
-    padding-top: 200px;
+    margin-top: 348px;
     position: relative;
 `;
 
@@ -44,13 +44,18 @@ const Sub = styled.div`
 
 const BuyBtn = styled.div`
     position: absolute;
-    top: 250px;
+    top: 50px;
     right: 0;
     display: flex;
     justify-content: center;
-    padding: 5px 0;
+    padding: 18px;
     align-items: center;
-    width: 15%;
+    width: 16%;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
     border-radius: 80px;
+    font-weight: 700;
+
+    img {
+        margin-right: 15px;
+    }
 `;

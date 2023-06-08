@@ -2,6 +2,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { styled } from 'styled-components';
+import NftList from '../nft/List';
 
 type Props = {
     data?: any;
@@ -16,22 +17,20 @@ const MainCarousel: React.FC<Props> = ({ data, type }) => {
     const settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 5.6,
         slidesToScroll: 1,
         arrows: false,
         autoplay: true,
         autoplaySpeed: 2000,
     };
 
-    const data1 = [1, 2, 3, 4, 5, 6];
+    const data1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     return (
         <Wrap className="hear">
             <Slider {...settings}>
                 {data1.map((item, index) => (
-                    <Item key={`main-${index}`}>
-                        <img src="/imgs/main_wallet.svg" alt="imsi" />
-                    </Item>
+                    <NftList key={`car-${index}`} />
                 ))}
             </Slider>
         </Wrap>
@@ -39,7 +38,15 @@ const MainCarousel: React.FC<Props> = ({ data, type }) => {
 };
 
 const Wrap = styled.div`
-    height: 300px;
+    width: 1920px;
+    padding: 60px 0;
+
+    position: absolute;
+    left: 40px;
+
+    &.hear > div > div {
+        overflow: visible;
+    }
 `;
 const Item = styled.div``;
 

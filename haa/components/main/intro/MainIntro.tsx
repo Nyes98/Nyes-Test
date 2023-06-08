@@ -13,7 +13,7 @@ export default function MainIntro() {
                 </Contents>
             </TextBox>
             <IconBox>
-                <img src="/imgs/main_Icon.svg" alt="icon" />
+                <img src="/imgs/main_icon.png" alt="icon" />
             </IconBox>
         </Wrap>
     );
@@ -33,7 +33,7 @@ const circleAnimation = keyframes`
 const Wrap = styled.div`
     display: flex;
     justify-content: space-between;
-    padding-top: 200px;
+    margin-top: 300px;
 `;
 
 const TextBox = styled.div`
@@ -51,7 +51,13 @@ const Title = styled.div`
 const Contents = styled.div`
     font-size: 1.9rem;
     margin-top: 42px;
+    line-height: 51px;
 `;
 const IconBox = styled.div`
     animation: ${circleAnimation} 4s ease-in-out infinite;
+    margin-right: 100px;
+
+    img {
+        width: 430px;
+    }
 `;
