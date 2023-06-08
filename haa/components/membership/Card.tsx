@@ -19,7 +19,7 @@ export default function MembershipCard() {
                     <Title>
                         멤버십 <span>다이아 </span>등급
                     </Title>
-                    <img src="/imgs/dia.svg" alt="gold" />
+                    <img src="/imgs/nextkey.png" alt="dia" />
                     <Text>
                         <div>Comming Soon!</div>
                     </Text>
@@ -89,7 +89,7 @@ const Card = styled.div`
     line-height: 42px;
 
     img {
-        width: 47%;
+        height: 196px;
         margin-top: 19px;
     }
 `;

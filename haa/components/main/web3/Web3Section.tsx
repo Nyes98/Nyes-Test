@@ -29,12 +29,14 @@ export default function Web3Section() {
                     <div>다양한 위스키</div>
                 </div>
                 <div>
+                    <div>가치보장</div>
                     <div>
-                        <img src="/imgs/Union2.png" alt="union2" />
+                        <img src="/imgs/Union2.png" alt="union2" className="rotate" />
                     </div>
                     <div>
                         <img src="/imgs/Union2.png" alt="union2" />
                     </div>
+                    <div>유동성</div>
                 </div>
                 <div>
                     <div>
@@ -43,12 +45,15 @@ export default function Web3Section() {
                     <div>WINENWIN NFT</div>
                 </div>
                 <div>
+                    <div>수익</div>
+
                     <div>
-                        <img src="/imgs/Union2.png" alt="union2" />
+                        <img src="/imgs/Union2.png" alt="union2" className="rotate" />
                     </div>
                     <div>
                         <img src="/imgs/Union2.png" alt="union2" />
                     </div>
+                    <div></div>
                 </div>
                 <div>
                     <div>
@@ -88,6 +93,7 @@ const CardBox = styled.div`
     padding: 80px 0;
     position: relative;
     text-align: center;
+    font-weight: 700;
 
     img {
         width: 9%;
@@ -106,7 +112,14 @@ const ValueBox = styled.div`
     display: flex;
     justify-content: space-between;
     text-align: center;
+    align-items: center;
+    font-weight: 700;
+
     img {
         width: 70%;
+    }
+
+    .rotate {
+        transform: scaleX(-1);
     }
 `;
