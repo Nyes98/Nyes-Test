@@ -12,10 +12,10 @@ interface DropBoxProps {
 }
 
 const HeaderComponent: React.FC = () => {
-    const pathname = usePathname().slice(1);
-    const [activeMenu, setActiveMenu] = useState<number | null>(null);
+    let pathname = usePathname();
+    if (pathname) pathname = pathname?.slice(1);
 
-    console.log(pathname);
+    const [activeMenu, setActiveMenu] = useState<number | null>(null);
 
     const handleMouseEnter = (index: number) => {
         setActiveMenu(index);
@@ -29,7 +29,9 @@ const HeaderComponent: React.FC = () => {
         return (
             <DropBox isvisible={isvisible}>
                 {item.sub.map((subItem: any, index: number) => (
-                    <div key={index}>{subItem}</div>
+                    <Link key={`headerSub-${index}`} href={subItem.href}>
+                        <div>{subItem.title}</div>
+                    </Link>
                 ))}
             </DropBox>
         );
@@ -48,7 +50,7 @@ const HeaderComponent: React.FC = () => {
                         onMouseEnter={() => handleMouseEnter(index)}
                         onMouseLeave={handleMouseLeave}
                         key={`header-${index}`}
-                        className={pathname === item.title ? 'cur' : ''}
+                        className={pathname?.includes(item.title) ? 'cur' : ''}
                     >
                         <Link href={`/${item.title}`}>{item.title}</Link>
                         {activeMenu === index && item.sub && <MenuDropdown isvisible={true} item={item} />}

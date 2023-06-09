@@ -23,6 +23,14 @@
             "@/*": ["./src/*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/404.js", "src/app/404.js"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        "src/app/404.js",
+        "src/app/404.js",
+        "src/pages/404.js"
+    ],
     "exclude": ["node_modules"]
 }

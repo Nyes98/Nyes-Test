@@ -1,9 +1,7 @@
 'use client';
 import { styled } from 'styled-components';
-import Web3Card from './Web3Card';
 
 export default function Web3Section() {
-    const dummy = [1, 2, 3, 4, 5, 6];
     return (
         <Wrap>
             <Title>
@@ -29,14 +27,14 @@ export default function Web3Section() {
                     <div>다양한 위스키</div>
                 </div>
                 <div>
-                    <div>가치보장</div>
+                    <ArrowText>가치보장</ArrowText>
                     <div>
                         <img src="/imgs/Union2.png" alt="union2" className="rotate" />
                     </div>
                     <div>
                         <img src="/imgs/Union2.png" alt="union2" />
                     </div>
-                    <div>유동성</div>
+                    <ArrowText>유동성</ArrowText>
                 </div>
                 <div>
                     <div>
@@ -45,7 +43,7 @@ export default function Web3Section() {
                     <div>WINENWIN NFT</div>
                 </div>
                 <div>
-                    <div>수익</div>
+                    <ArrowText>수익</ArrowText>
 
                     <div>
                         <img src="/imgs/Union2.png" alt="union2" className="rotate" />
@@ -62,6 +60,10 @@ export default function Web3Section() {
                     <div>거래</div>
                 </div>
             </ValueBox>
+            <Text>
+                <div>실물자산인 위스키의 안정적인 가치가 지탱되고 있기 때문에,</div>
+                <div>커뮤니티의 신뢰 구축이 가능하며 팬덤과 콘텐츠의 확장성이 풍부합니다.</div>
+            </Text>
         </Wrap>
     );
 }
@@ -83,6 +85,15 @@ const Title = styled.div`
     }
 `;
 
+const Text = styled.div`
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 42px;
+
+    text-align: center;
+    margin-top: 117px;
+`;
+
 const Sub = styled.div`
     color: #424242;
     font-size: 1.2rem;
@@ -102,24 +113,30 @@ const CardBox = styled.div`
 
 const Arrow = styled.div`
     position: absolute;
-    width: 160px;
-    left: calc(50% - 172px / 2);
+    width: 200px;
+    left: calc(50% - 216px / 2);
     top: 260px;
 `;
 
 const ValueBox = styled.div`
     margin-top: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
     align-items: center;
     font-weight: 700;
+    width: 90%;
+    margin: 80px auto 0 auto;
 
     img {
-        width: 70%;
+        width: 67%;
     }
 
     .rotate {
         transform: scaleX(-1);
     }
+`;
+
+const ArrowText = styled.div`
+    font-weight: 500;
 `;

@@ -67,7 +67,7 @@ export default function MileStoneSection() {
 }
 
 const Wrap = styled.div`
-    margin-top: 206px;
+    margin-top: 237px;
 `;
 
 const Title = styled.div`

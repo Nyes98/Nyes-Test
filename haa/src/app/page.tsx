@@ -5,7 +5,6 @@ import MileStoneSection from '../../components/main/milestone/MileStone';
 import FAQSection from '../../components/main/faq/FAQ';
 import MembershipSection from '../../components/main/membership/MembershipSection';
 import SpotSection from '../../components/main/spot/SpotSection';
-import RealAssetSection from '../../components/main/realasset/RealAssetSection';
 
 export default function Home() {
     return (
@@ -13,7 +12,6 @@ export default function Home() {
             <MainIntro />
             <MainNftSection />
             <Web3Section />
-            <RealAssetSection />
             <MileStoneSection />
             <FAQSection />
             <MembershipSection />

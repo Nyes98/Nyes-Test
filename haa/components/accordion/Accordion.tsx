@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AccordionDummy } from '../../data/accordion';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export default function Accordion() {
     const [openIdx, setOpenIdx] = useState(-1);
@@ -25,7 +25,7 @@ export default function Accordion() {
                     <Card className={openIdx === index ? 'open' : ''}>
                         <Title>
                             {item.title}
-                            <img src="imgs/arrow_up.svg" alt="up" />
+                            <img src="/imgs/arrow_up.svg" alt="up" />
                         </Title>
                         <Hidden className={openIdx === index ? 'open' : ''}>
                             {Array.isArray(item.text) ? (
@@ -62,17 +62,26 @@ const TextWrap = styled.div`
     margin-bottom: 15px;
 `;
 
+const sildeDown = keyframes`
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+`;
+
 const Hidden = styled.div`
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    display: none;
+    margin-bottom: 19px;
 
     &.open {
-        height: auto;
-        opacity: 1;
-        margin-top: 50px;
-        transition: margin 0.3s;
+        display: block;
+        margin-top: 30px;
+        animation: ${sildeDown} 0.3s ease-in-out;
     }
 `;
 
@@ -87,7 +96,6 @@ const Card = styled.div`
     padding: 30px 50px;
     box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    transition: padding 0.3s ease-in-out;
 
     img {
         transform: rotate(180deg);

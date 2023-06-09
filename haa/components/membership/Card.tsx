@@ -16,9 +16,7 @@ export default function MembershipCard() {
                     </Text>
                 </Card>
                 <Card>
-                    <Title>
-                        멤버십 <span>다이아 </span>등급
-                    </Title>
+                    <Title>넥스트 에디션</Title>
                     <img src="/imgs/nextkey.png" alt="dia" />
                     <Text>
                         <div>Comming Soon!</div>
