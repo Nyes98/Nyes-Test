@@ -1,6 +1,8 @@
 'use client';
 import { styled, keyframes } from 'styled-components';
 import MainCarousel from '../../carousel/MainCarousel';
+import Image from 'next/image';
+import NFT_BuyBtn from '@/images/buybtn.png';
 
 export default function MainNftSection() {
     return (
@@ -11,7 +13,7 @@ export default function MainNftSection() {
             </Title>
             <Sub>마시지만 말고 투자해보세요! WINENWIN NFT와 함께! </Sub>
             <BuyBtn>
-                <img src="/imgs/buy_btn.svg" alt="buy" />
+                <Image src={NFT_BuyBtn} width={52} alt="nft_buybtn"></Image>
                 NFT 구매하기
             </BuyBtn>
             <MainCarousel />

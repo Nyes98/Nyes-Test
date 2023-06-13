@@ -1,6 +1,5 @@
 'use client';
-import { styled, keyframes } from 'styled-components';
-import MainCarousel from '../../carousel/MainCarousel';
+import { styled } from 'styled-components';
 import Accordion from '../../accordion/Accordion';
 
 export default function FAQSection() {
@@ -11,7 +10,7 @@ export default function FAQSection() {
                 <span> FAQ</span>
             </Title>
             <Sub>
-                randomised words which don't look even slightly believable.
+                randomized words which don&apos;t look even slightly believable.
                 <div>If you are going to use a passage of Lorem Ipsum</div>
             </Sub>
             <Accordion />

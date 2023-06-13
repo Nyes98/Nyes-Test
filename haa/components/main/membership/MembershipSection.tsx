@@ -1,5 +1,9 @@
 'use client';
 import { styled } from 'styled-components';
+import Image from 'next/image';
+
+import MembershipBtn from '@/images/membership_btn.png';
+import MembershipGif from '@/images/membership.gif';
 
 export default function MembershipSection() {
     return (
@@ -13,12 +17,12 @@ export default function MembershipSection() {
                 <div>지금 바로 윈윈 제네시스 홀더가 되보세요!</div>
             </Sub>
             <BuyBtn>
-                <img src="/imgs/main_membership.svg" alt="membership" />
+                <Image src={MembershipBtn} width={44} alt="membership_btn"></Image>
                 멤버십 가입하기
             </BuyBtn>
             <ImgBox>
                 <div>
-                    <img src="imgs/membership.gif" alt="realSet" />
+                    <Image src={MembershipGif} width={700} alt="membership_gif"></Image>
                 </div>
                 <div>WINENWIN Genesis Holder는 저희가 제작한 고급진 멤버십 카드를 받을 수 있습니다.</div>
                 <div>멤버십 카드를 발급 받으신 분은 저희의 홀더로서 특별한 베네핏이 제공됩니다.</div>
@@ -58,10 +62,6 @@ const ImgBox = styled.div`
         font-size: 1.6rem;
         font-weight: 700;
         line-height: 42px;
-    }
-
-    img {
-        width: 40%;
     }
 `;
 

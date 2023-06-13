@@ -1,19 +1,33 @@
 'use client';
 
 import { styled } from 'styled-components';
-import CheckBox from '../../../components/checkbox/Checkbox';
 import { useState } from 'react';
-import { FilterData } from '../../../data/filter';
 import NftList from '../../../components/nft/List';
+import Image from 'next/image';
+
+import SearchImg from '@/images/search.svg';
+import NftFilter from '../../../components/nft/Filter';
+import Pagination from '../../../components/pagination/Pagination';
 
 export default function Nfts() {
-    const [isFilterClick, setIsFilterClick] = useState(-1);
+    const dudumymy = [1, 2, 3, 4, 5, 6];
+    const [filters, setFilters] = useState<string[]>([]);
+    const [sort, setSort] = useState('');
 
-    const FilterClick = (index: number) => {
-        setIsFilterClick(index);
+    const addFilters = (item: string) => {
+        setFilters((prevFilters: any) => {
+            if (prevFilters.includes(item)) {
+                return prevFilters.filter((filterItem: any) => filterItem !== item);
+            } else {
+                return [...prevFilters, item];
+            }
+        });
     };
 
-    const dudumymy = [1, 2, 3, 4, 5, 6];
+    const SetSort = (item: string) => {
+        setSort(item);
+        console.log(item);
+    };
 
     return (
         <Wrap>
@@ -21,42 +35,39 @@ export default function Nfts() {
                 <div>NFTs</div>
                 <SearchBox>
                     <input type="text" placeholder="원하는 주류명으로 검색" />
-                    <img src="/imgs/search.svg" alt="search" />
+                    <Image src={SearchImg} alt="search"></Image>
                 </SearchBox>
             </PageTitle>
             <ConWrap>
-                <FilterBox>
-                    <FTitle>
-                        Filter
-                        <img src="/imgs/reset.svg" alt="reset" />
-                    </FTitle>
-                    {FilterData.map((item, index) => (
-                        <FContents key={`CT-${index}`}>
-                            <CheckTitle onClick={() => FilterClick(index)}>
-                                {item.title}
-                                <img src="/imgs/filter_btn.svg" alt="fbtn" />
-                            </CheckTitle>
-                            <CheckLine className={isFilterClick === index ? 'open' : ''}>
-                                {item.sub?.map((item, index) => (
-                                    <SubItem key={`CL-${index}`}>
-                                        <CheckBox /> {item}
-                                    </SubItem>
-                                ))}
-                            </CheckLine>
-                        </FContents>
-                    ))}
-                </FilterBox>
+                <NftFilter filters={filters} setFilters={setFilters} addFilters={addFilters} />
                 <NftListBox>
-                    <SortBox>
-                        <div>최신순</div>
-                        <div>가격 높은 순</div>
-                        <div>가격 낮은 순</div>
-                    </SortBox>
+                    <FSBox>
+                        <FilterBox>
+                            {filters.map((item, index) => (
+                                <div key={`filters-${index}`}>
+                                    <div>{item}</div>
+                                    <div onClick={() => addFilters(item)}>x</div>
+                                </div>
+                            ))}
+                        </FilterBox>
+                        <SortBox>
+                            <div onClick={() => SetSort('new')} className={sort === 'new' ? 'on' : ''}>
+                                최신순
+                            </div>
+                            <div onClick={() => SetSort('high')} className={sort === 'high' ? 'on' : ''}>
+                                가격 높은 순
+                            </div>
+                            <div onClick={() => SetSort('low')} className={sort === 'low' ? 'on' : ''}>
+                                가격 낮은 순
+                            </div>
+                        </SortBox>
+                    </FSBox>
                     <ListBox>
                         {dudumymy.map((item, index) => (
                             <NftList key={`list-${index}`} />
                         ))}
                     </ListBox>
+                    <Pagination />
                 </NftListBox>
             </ConWrap>
         </Wrap>
@@ -66,29 +77,32 @@ export default function Nfts() {
 const Wrap = styled.div`
     margin-top: 50px;
 `;
+
+const FSBox = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
 const ConWrap = styled.div`
+    margin-top: 41px;
     display: flex;
     justify-content: space-between;
 `;
 
-const FilterBox = styled.div`
-    width: 18%;
-`;
-
-const SubItem = styled.div`
-    display: flex;
-    padding: 10px 0;
-`;
-
 const NftListBox = styled.div`
-    width: 75%;
+    width: 74%;
 `;
 
 const SortBox = styled.div`
+    width: 40%;
     display: flex;
+    margin: 20px 0;
     justify-content: flex-end;
     div {
         margin: 0 13px;
+        &.on {
+            font-weight: 500;
+        }
     }
 `;
 
@@ -96,37 +110,11 @@ const ListBox = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-`;
+    margin-top: 31px;
 
-const CheckTitle = styled.div`
-    display: flex;
-    justify-content: space-between;
-`;
-
-const CheckLine = styled.div`
-    font-size: 0.9rem;
-    display: flex;
-    padding: 10px 0;
-
-    display: none;
-
-    &.open {
-        display: block;
+    & > div {
+        margin-bottom: 28px;
     }
-`;
-
-const FContents = styled.div`
-    padding: 15px 0;
-    border-bottom: 1px solid #eeeeee;
-`;
-
-const FTitle = styled.div`
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.4rem;
-    padding: 20px 0;
-
-    border-bottom: 1px solid #eeeeee;
 `;
 
 const PageTitle = styled.div`
@@ -142,6 +130,7 @@ const PageTitle = styled.div`
 const SearchBox = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 20%;
     height: 23px;
 
@@ -153,7 +142,33 @@ const SearchBox = styled.div`
         outline: none;
     }
     img {
-        width: 19px;
         cursor: pointer;
+    }
+`;
+
+const FilterBox = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: 65%;
+
+    & > div {
+        display: flex;
+        margin-right: 10px;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: #f1f3f5;
+        margin-bottom: 5px;
+
+        & > div:first-child {
+            margin-right: 15px;
+        }
+
+        & > div:last-child {
+            cursor: pointer;
+
+            &:hover {
+                color: #646d75;
+            }
+        }
     }
 `;

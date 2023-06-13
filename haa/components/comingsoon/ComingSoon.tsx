@@ -1,12 +1,14 @@
 'use client';
 
+import Image from 'next/image';
 import React from 'react';
 import { styled } from 'styled-components';
+import SoonImg from '../../public/imgs/coming.png';
 
 export default function ComingSoon() {
     return (
         <Wrap>
-            <img src="/imgs/coming.png" alt="soon" />
+            <Image src={SoonImg} width={300} alt="soon"></Image>
         </Wrap>
     );
 }
@@ -14,7 +16,4 @@ export default function ComingSoon() {
 const Wrap = styled.div`
     margin-top: 300px;
     text-align: center;
-    img {
-        width: 25%;
-    }
 `;

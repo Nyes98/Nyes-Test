@@ -4,8 +4,12 @@ import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import { HeaderDummy } from '../../data/header';
 import Link from 'next/link';
-
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+
+import LogoImg from '@/images/wWLogo.png';
+import WalletImg from '@/images/main_wallet.png';
+
 interface DropBoxProps {
     isvisible: boolean;
     item?: any;
@@ -41,7 +45,7 @@ const HeaderComponent: React.FC = () => {
         <Wrap>
             <Link href={'/'}>
                 <LogoBox>
-                    <img src="/imgs/logo.png" alt="Logo" />
+                    <Image src={LogoImg} width={195} alt="logo"></Image>
                 </LogoBox>
             </Link>
             <MenuBox>
@@ -58,7 +62,7 @@ const HeaderComponent: React.FC = () => {
                 ))}
             </MenuBox>
             <WalletBtn>
-                <img src="/imgs/main_wallet.png" alt="wallet" />
+                <Image src={WalletImg} width={22} alt="logo"></Image>
                 CONNECT WALLET
             </WalletBtn>
         </Wrap>
@@ -76,10 +80,6 @@ const Wrap = styled.div`
 const LogoBox = styled.div`
     display: flex;
     align-items: center;
-
-    img {
-        width: 195px;
-    }
 `;
 
 const WalletBtn = styled.div`
@@ -91,7 +91,6 @@ const WalletBtn = styled.div`
 
     img {
         margin-right: 10px;
-        width: 22px;
     }
 `;
 

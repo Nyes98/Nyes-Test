@@ -1,5 +1,7 @@
 'use client';
+import Image from 'next/image';
 import { styled, keyframes } from 'styled-components';
+import MainIcon from '@/images/main_icon.png';
 
 export default function MainIntro() {
     return (
@@ -13,7 +15,7 @@ export default function MainIntro() {
                 </Contents>
             </TextBox>
             <IconBox>
-                <img src="/imgs/main_icon.png" alt="icon" />
+                <Image src={MainIcon} width={430} alt="icon"></Image>
             </IconBox>
         </Wrap>
     );
@@ -56,8 +58,4 @@ const Contents = styled.div`
 const IconBox = styled.div`
     animation: ${circleAnimation} 4s ease-in-out infinite;
     margin-right: 100px;
-
-    img {
-        width: 430px;
-    }
 `;

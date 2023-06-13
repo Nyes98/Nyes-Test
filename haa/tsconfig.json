@@ -30,7 +30,8 @@
         ".next/types/**/*.ts",
         "src/app/404.js",
         "src/app/404.js",
-        "src/pages/404.js"
+        "src/pages/404.js",
+        "components/carousel/MainCarousel.tsx"
     ],
     "exclude": ["node_modules"]
 }

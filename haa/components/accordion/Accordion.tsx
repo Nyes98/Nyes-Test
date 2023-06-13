@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { AccordionDummy } from '../../data/accordion';
 import styled, { keyframes } from 'styled-components';
+import Image from 'next/image';
+import ArrowImg from '@/images/arrow_up.svg';
 
 export default function Accordion() {
     const [openIdx, setOpenIdx] = useState(-1);
@@ -25,7 +27,7 @@ export default function Accordion() {
                     <Card className={openIdx === index ? 'open' : ''}>
                         <Title>
                             {item.title}
-                            <img src="/imgs/arrow_up.svg" alt="up" />
+                            <Image src={ArrowImg} alt=""></Image>
                         </Title>
                         <Hidden className={openIdx === index ? 'open' : ''}>
                             {Array.isArray(item.text) ? (
@@ -111,6 +113,7 @@ const Card = styled.div`
 const Title = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-weight: 700;
     font-size: 1.4rem;
 `;

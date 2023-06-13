@@ -1,11 +1,13 @@
+import Image from 'next/image';
 import { styled } from 'styled-components';
+import LogoImg from '@/images/wWLogo.png';
 
 export default function Footer() {
     return (
         <Background>
             <Wrap>
                 <LogoBox>
-                    <img src="/imgs/wWLogo.svg" alt="logo" />
+                    <Image src={LogoImg} width={195} alt="logo"></Image>
                 </LogoBox>
 
                 <InfoBox>
@@ -22,7 +24,7 @@ export default function Footer() {
                     </Company>
                     <Intro>
                         <div>
-                            <div>WINEWIN은 웹 3.0 플랫폼을 통해 새로운 세상을 창조하려 합니다.</div>
+                            <div>WINENWIN은 웹 3.0 플랫폼을 통해 새로운 세상을 창조하려 합니다.</div>
                             <div>탈중앙화된 시스템과 개인화와 소유를 통하여 메타버스를 창조합니다.</div>
                         </div>
                         <div>우리의 계획에 여러분들의 꿈을 같이 싣어서 보내주세요.</div>
@@ -40,7 +42,7 @@ export default function Footer() {
                             </div>
                             <div>사업장소재지 서울특별시 강남구 테헤란로 503, 하이브로빌딩 6층 606호</div>
                         </div>
-                        <div>2023 WINEWIN. Copyright All rights reserved.</div>
+                        <div>2023 WINENWIN. Copyright All rights reserved.</div>
                     </Address>
                     <Page>
                         <div>About</div>

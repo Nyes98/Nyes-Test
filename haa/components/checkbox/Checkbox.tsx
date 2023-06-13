@@ -1,19 +1,18 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
+import CheckImg from '@/images/check.svg';
 
-export default function CheckBox() {
-    const [ischeck, setIscheck] = useState(false);
+type Props = {
+    select: boolean;
+};
 
-    const Checking = () => {
-        setIscheck((state) => !state);
-        console.log(ischeck);
-    };
-
+export default function CheckBox({ select }: Props) {
     return (
-        <Wrap onClick={Checking} className={ischeck ? 'checked' : ''}>
-            <img src="/imgs/check.svg" alt="check" />
+        <Wrap className={select ? 'checked' : ''}>
+            <Image src={CheckImg} alt="check"></Image>
         </Wrap>
     );
 }
@@ -25,7 +24,6 @@ const Wrap = styled.div`
     border-radius: 5px;
     text-align: center;
     margin-right: 15px;
-    cursor: pointer;
 
     &.checked {
         background-color: black;

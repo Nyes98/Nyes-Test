@@ -1,6 +1,14 @@
 'use client';
 import { styled } from 'styled-components';
 
+import Image from 'next/image';
+import Web3_BuyBtn from '@/images/buybtn.png';
+import Web3_whiskey from '@/images/whiskey.png';
+import Web3_NFT from '@/images/nft.png';
+import Web3_Trade from '@/images/trade.png';
+import Union from '@/images/Union.png';
+import Union2 from '@/images/Union2.png';
+
 export default function Web3Section() {
     return (
         <Wrap>
@@ -13,32 +21,32 @@ export default function Web3Section() {
                 <div>보관 부담을 없애면서도 간편한 거래 방식으로 인해 시장 유동성을 활성화시킵니다.</div>
             </Sub>
             <CardBox>
-                <img src="/imgs/buybtn.png" alt="buybtn" />
+                <Image src={Web3_BuyBtn} width={126} alt="web3_buyBtn"></Image>
                 <div>NFT 구매</div>
                 <Arrow>
-                    <img src="/imgs/Union.png" alt="union" />
+                    <Image src={Union} width={20} height={100} alt="union"></Image>
                 </Arrow>
             </CardBox>
             <ValueBox>
                 <div>
                     <div>
-                        <img src="/imgs/whiskey.png" alt="whiskey" />
+                        <Image src={Web3_whiskey} width={100} alt="web3_buyBtn"></Image>
                     </div>
                     <div>다양한 위스키</div>
                 </div>
                 <div>
                     <ArrowText>가치보장</ArrowText>
                     <div>
-                        <img src="/imgs/Union2.png" alt="union2" className="rotate" />
+                        <Image src={Union2} width={260} alt="union2" className="rotate"></Image>
                     </div>
                     <div>
-                        <img src="/imgs/Union2.png" alt="union2" />
+                        <Image src={Union2} width={260} alt="union2"></Image>
                     </div>
                     <ArrowText>유동성</ArrowText>
                 </div>
                 <div>
                     <div>
-                        <img src="/imgs/nft.png" alt="nft" />
+                        <Image src={Web3_NFT} width={105} alt="web3_NFT"></Image>
                     </div>
                     <div>WINENWIN NFT</div>
                 </div>
@@ -46,16 +54,16 @@ export default function Web3Section() {
                     <ArrowText>수익</ArrowText>
 
                     <div>
-                        <img src="/imgs/Union2.png" alt="union2" className="rotate" />
+                        <Image src={Union2} width={260} alt="union2" className="rotate"></Image>
                     </div>
                     <div>
-                        <img src="/imgs/Union2.png" alt="union2" />
+                        <Image src={Union2} width={260} alt="union2"></Image>
                     </div>
                     <div></div>
                 </div>
                 <div>
                     <div>
-                        <img src="/imgs/trade.png" alt="trade" />
+                        <Image src={Web3_Trade} width={109} alt="web3_NFT"></Image>
                     </div>
                     <div>거래</div>
                 </div>
@@ -105,10 +113,6 @@ const CardBox = styled.div`
     position: relative;
     text-align: center;
     font-weight: 700;
-
-    img {
-        width: 9%;
-    }
 `;
 
 const Arrow = styled.div`
@@ -127,10 +131,6 @@ const ValueBox = styled.div`
     font-weight: 700;
     width: 90%;
     margin: 80px auto 0 auto;
-
-    img {
-        width: 67%;
-    }
 
     .rotate {
         transform: scaleX(-1);

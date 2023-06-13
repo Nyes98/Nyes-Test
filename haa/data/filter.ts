@@ -1,30 +1,30 @@
 export const FilterData = [
     {
         title: '타입',
-        sub: ['Whiskey', 'Membership'],
+        sub: ['타', '입'],
     },
     {
         title: '종류',
-        sub: ['우시키', 'Membership'],
+        sub: ['종', '류'],
     },
     {
         title: '연도',
-        sub: ['Whiskey', 'Membership'],
+        sub: ['연', '도1'],
     },
     {
         title: '용량',
-        sub: ['Whiskey', 'Membership'],
+        sub: ['용', '량'],
     },
     {
         title: '국가',
-        sub: ['Whiskey', 'Membership'],
+        sub: ['국', '가'],
     },
     {
         title: '도수',
-        sub: ['Whiskey', 'Membership'],
+        sub: ['도2', '수'],
     },
     {
         title: '케이스',
-        sub: ['Whiskey', 'Membership'],
+        sub: ['케', '이', '스'],
     },
 ];

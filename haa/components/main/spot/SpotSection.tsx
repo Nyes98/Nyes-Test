@@ -1,5 +1,7 @@
 'use client';
 import { styled } from 'styled-components';
+import NFT_BuyBtn from '@/images/main_spot.png';
+import Image from 'next/image';
 
 export default function SpotSection() {
     return (
@@ -14,7 +16,7 @@ export default function SpotSection() {
                 <div>지금 바로 만나보세요 !</div>
             </Sub>
             <BuyBtn>
-                <img src="/imgs/main_spot.svg" alt="buy" />
+                <Image src={NFT_BuyBtn} width={28} alt="nft_buyBtn"></Image>
                 위스키스팟 바로가기
             </BuyBtn>
         </Wrap>

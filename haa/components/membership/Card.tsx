@@ -1,4 +1,11 @@
+import Image from 'next/image';
 import { styled } from 'styled-components';
+
+import Membership_Card from '@/images/membership_card.png';
+import Membership_Next from '@/images/membership_nextkey.png';
+import Membership_Discount from '@/images/membership_discount.png';
+import Membership_Star from '@/images/membership_star.png';
+import Membership_Sale from '@/images/membership_sale.png';
 
 export default function MembershipCard() {
     return (
@@ -8,7 +15,7 @@ export default function MembershipCard() {
                     <Title>
                         멤버십 <span>골드 </span>등급
                     </Title>
-                    <img src="/imgs/realset_card.svg" alt="gold" />
+                    <Image src={Membership_Card} alt="membership_card" width={305}></Image>
                     <Text>
                         <div>가격: 75$ (10만원)</div>
                         <div>소유 하나당 위스키 구매 시 0.5% 할인</div>
@@ -17,15 +24,16 @@ export default function MembershipCard() {
                 </Card>
                 <Card>
                     <Title>넥스트 에디션</Title>
-                    <img src="/imgs/nextkey.png" alt="dia" />
+                    <Image src={Membership_Next} alt="membership_next" width={210}></Image>
+
                     <Text>
-                        <div>Comming Soon!</div>
+                        <div>Coming Soon!</div>
                     </Text>
                 </Card>
             </CardWrap>
             <StarWrap>
                 <Star>
-                    <img src="/imgs/discount.svg" alt="discount" />
+                    <Image src={Membership_Discount} alt="membership_discount" width={50}></Image>
                     <Title>할인 혜택</Title>
                     <Text>
                         <div>위스키 구매 시</div>
@@ -33,7 +41,7 @@ export default function MembershipCard() {
                     </Text>
                 </Star>
                 <Star>
-                    <img src="/imgs/star.svg" alt="star" />
+                    <Image src={Membership_Star} alt="membership_star" width={50}></Image>
                     <Title>우선 구매 혜택</Title>
                     <Text>
                         <div>고급 위스키 입고 시,</div>
@@ -42,7 +50,7 @@ export default function MembershipCard() {
                     </Text>
                 </Star>
                 <Star>
-                    <img src="/imgs/sale.svg" alt="sale" />
+                    <Image src={Membership_Sale} alt="membership_sale" width={50}></Image>
                     <Title>합리적인 가격</Title>
                     <Text>
                         <div>WINENWINE만의 제휴 업체들을 통해</div>

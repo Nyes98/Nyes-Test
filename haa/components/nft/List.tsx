@@ -1,16 +1,23 @@
+import Image from 'next/image';
 import { styled } from 'styled-components';
+
+import MaticImg from '@/images/MATIC.png';
+import Link from 'next/link';
 
 export default function NftList() {
     return (
         <Wrap>
-            <ImgBox></ImgBox>
-            <InfoBox>
-                <div>#20</div>
-                <div>Whiskey Name</div>
-                <div>
-                    <img src="imgs/matic.svg" alt="matic" /> 500 MATIC
-                </div>
-            </InfoBox>
+            <Link href={'/NFTs/buy/1'}>
+                <ImgBox></ImgBox>
+                <InfoBox>
+                    <div>#20</div>
+                    <div>Whiskey Name</div>
+                    <div>
+                        <Image src={MaticImg} width={19} alt="matic"></Image>
+                        550 MATIC
+                    </div>
+                </InfoBox>
+            </Link>
         </Wrap>
     );
 }
@@ -33,6 +40,7 @@ const InfoBox = styled.div`
     div {
         margin: 10px 0;
         display: flex;
+        align-items: center;
     }
 
     div:nth-child(2) {

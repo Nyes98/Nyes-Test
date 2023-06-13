@@ -2,6 +2,8 @@
 
 import { styled } from 'styled-components';
 import { MileStoneData } from '../../../data/milestone';
+import Image from 'next/image';
+import MileStoneImage from '@/images/main_Milestone.png';
 
 interface TitleProps {
     even: number;
@@ -15,7 +17,7 @@ export default function MileStoneSection() {
                 <span> ROADMAP</span>
             </Title>
             <Sub>
-                <div>randomised words which don't look even slightly believable.</div>
+                <div>randomized words which don&apos;t look even slightly believable.</div>
                 <div>If you are going to use a passage of Lorem Ipsum</div>
             </Sub>
             <LoadMap>
@@ -25,7 +27,7 @@ export default function MileStoneSection() {
                             <FlexBox>
                                 <div>{item.title}</div>
                                 <div>
-                                    <img src="imgs/milestone.svg" alt="milestone" />
+                                    <Image src={MileStoneImage} width={40} alt="milestone"></Image>
                                 </div>
                                 <div></div>
                             </FlexBox>
@@ -33,7 +35,7 @@ export default function MileStoneSection() {
                             <FlexBox>
                                 <div></div>
                                 <div>
-                                    <img src="imgs/milestone.svg" alt="milestone" />
+                                    <Image src={MileStoneImage} width={40} alt="milestone"></Image>
                                 </div>
                                 <div>{item.title}</div>
                             </FlexBox>
@@ -54,7 +56,7 @@ export default function MileStoneSection() {
                                 <div></div>
                                 <ContentsWrap>
                                     {item.list.map((item, index) => (
-                                        <MContents key={`mcontents-${index}`}>{item}</MContents>
+                                        <MContents key={`contents-${index}`}>{item}</MContents>
                                     ))}
                                 </ContentsWrap>
                             </FlexBox>
